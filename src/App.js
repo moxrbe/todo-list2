@@ -10,11 +10,28 @@ const App = () => {
   const [input, setInput] = useState('');
   const [todos, setTodos] = useState([]);
   const [editTodo, setEditTodo] = useState(null);
+  const [value, setValue] = useState('')
+  // const [searchTerm, setSearchTerm] = useState("");
+  const filteredTodo = todos.filter (todos => {
+
+    return todos.title.toLowerCase().includes(value.toLowerCase())
+  })
+
+
   return (
     <div className="container">
       <div className="app-wrapper">
         <div>
           <Header/>
+        </div>
+      <div>
+      <div>
+                <input className='searchInput' type='text' placeholder='Search...'
+                           onChange={(event) => setValue(event.target.value)}
+                           
+
+                 />
+            </div>
         </div>
         <div>
           <Form
@@ -27,7 +44,10 @@ const App = () => {
           />
         </div>
         <div>
-          <TodoList todos={todos} setTodos={setTodos} setEditTodo={setEditTodo} />
+          <TodoList todos={filteredTodo} 
+          setTodos={setTodos}
+           setEditTodo={setEditTodo} 
+           />
         </div>
       </div>
     </div>

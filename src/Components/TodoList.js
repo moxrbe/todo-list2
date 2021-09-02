@@ -1,9 +1,14 @@
 import React from 'react'
 
+
+
 const TodoList = ({todos, setTodos, setEditTodo}) => {
     const handleDelete = ({id}) => {
         setTodos(todos.filter((todo) => todo.id !== id))
     }
+
+
+
     const handleComplete = (todo) => {
         setTodos(
             todos.map((item) => {
