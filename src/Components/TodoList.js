@@ -41,7 +41,9 @@ const TodoList = ({todos, setTodos, setEditTodo}) => {
                 </li>
             )
             )}
+            
         </div>
+        
     )
 }
 
